@@ -1,3 +1,13 @@
+.logo {
+    content: url('../../assets/images/fc_logo.png');
+    height: 50px;
+    width: 50px;
+}
+
+.logo-border {
+    border-radius: 7px;
+}
+
 .dropdown-toggle {
     cursor: pointer;
 }

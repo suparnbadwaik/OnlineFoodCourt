@@ -1,5 +1,6 @@
 # Online Food Court
 
+
 ## BOOTSTRAP
 
 > Install bootstrap
@@ -29,6 +30,13 @@ Render it as fc-navbar. fc indicates FoodCourt. This is a good practice to avoid
 ng g c home
 ```
 Render it as fc-home
+
+
+> Create a component for login
+```
+ng g c login
+```
+Render it as fc-login
 
 > Product Component to display list of all the Products
 ```
@@ -64,23 +72,26 @@ Render it as fc-my-orders
 ```
 ng g c admin/admin-products
 ```
+Render it as fc-admin-products
 
 > Admin order component to manage the orders for all the users
 ```
 ng g c admin/admin-orders
 ```
+Render it as fc-admin-orders
 
-> Create a component for login
-```
-ng g c login
-```
+
+## NG BOOTSTRAP
 
 > In the bootstrap dropdown, we have a show class that pops up the dropdown options.
 > Should I add bootstrap.js or bootstrap.min.js to my project?
 No, the goal of ng-bootstrap is to completely replace JavaScript implementation for components. Nor should you include other dependencies like jQuery or popper.js. It is not necessary and might interfere with ng-bootstrap code.
 
 Visit [ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
-> Install ng-bootstrap using npm
+
+> Can be used since we are trying to avoid Javascript for DOM modification and using angular as far as possible.
+> With bootstrap comes bootstrap.js but we will avoid using it since it has dependent on jQuery.
+> Install ng-bootstrap using npm as it says in the official documentation.
 ```
 npm install --save @ng-bootstrap/ng-bootstrap
 ```
@@ -108,6 +119,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 Select an option from the dropdown, it works fine. Try selecting the option again, the page reloads.
 To avoid this, eliminate href="#" from the bootstrap code. Once this is solved, change the cursor to pointer.
 
+
 ## FIREBASE
 
 > Goto your project directory and execute the below command. Create a boiler plate angular app :
@@ -115,18 +127,15 @@ To avoid this, eliminate href="#" from the bootstrap code. Once this is solved, 
 ng init
 ```
 
-
 > Goto [Firebase Console](https://github.com/angular/angular-cli)
 
 > Create a new Firebase Project.
 Copy the settings to the environment.ts and environment.prod.ts files.
 
-
 > Install Firebase anf Firebase client for Angular using Npm
 ```
 npm i --save firebase@4.2.0 angularfire2@4.0.0-rc.1
 ```
-
 
 > Add Module dependencies in the App Module
 
@@ -136,7 +145,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 ```
-
 
 > And also import in the Import the array in the App module as below
 

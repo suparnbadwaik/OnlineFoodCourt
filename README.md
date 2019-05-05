@@ -163,3 +163,36 @@ import { environment } from './../environments/environment';
   bootstrap: [AppComponent]
 })
 ```
+
+> Install firebase tools using npm
+```
+npm install -g firebase-tools
+```
+
+> Check firebase version and login to deploy the app. When you enter the command in VS Code, it basically opens the browser for you and redirects you to the login screen. Once logged in, you can close the window and the terminal will show the message if the login was successful.
+```
+firebase --version
+firebase login
+```
+
+> Initialize the Firebase app for Hosting. Will ask for what you need to initialize the firebase app.
+You need to select the project with which you want to initialize the app.
+```
+firebase init
+```
+
+> NOTE : When you do an init, there will be a few prompts on your screen.
+  > Select the app as SPA(Single Page Application)
+  > When asked for public folder, mention "dist/OnlineFoodCourt" viz "dist/nameOfApp" where nameOfApp is the name of your application.
+  > When asked to return all the urls to index.html, say yes
+
+> Now build the app using the below command. It builds the directory by name of the app and saves the deployables to dist/nameofApp directory
+```
+ng build --prod
+```
+
+> Now you need to deploy the files in the dist/nameOfApp directory. Firebase looks in the firebase.json file and looks the location from which it has to deploy the files. In our case, it is "dist/OnlineFoodCourt" directory.
+Once deployed, it will provide you with an URL that points to the firebase server.
+```
+firebase deploy
+```

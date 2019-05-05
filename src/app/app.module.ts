@@ -18,6 +18,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
       { path: 'check-out', component: AdminProductsComponent },
       { path: 'admin/orders', component: AdminOrdersComponent },
       { path: 'admin/products', component: AdminProductsComponent }
-    ])
+    ]),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

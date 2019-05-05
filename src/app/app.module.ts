@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { environment } from 'src/environments/environment';
     ]),
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

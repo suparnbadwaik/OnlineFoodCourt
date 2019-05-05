@@ -186,7 +186,7 @@ firebase init
   > When asked for public folder, mention "dist/OnlineFoodCourt" viz "dist/nameOfApp" where nameOfApp is the name of your application.
   > When asked to return all the urls to index.html, say yes
 
-> Now build the app using the below command. It builds the directory by name of the app and saves the deployables to dist/nameofApp directory
+> Now build the app using the below command. It builds the directory by name of the app and saves the deployables to dist/nameofApp directory. Many different files and directories are created. .firebase, .firebaserc, public, etc.
 ```
 ng build --prod
 ```
@@ -195,4 +195,31 @@ ng build --prod
 Once deployed, it will provide you with an URL that points to the firebase server.
 ```
 firebase deploy
+```
+
+
+## ASYNC PIPE
+
+> Async pipe can be used to implicitly subscribe to the observable from the template. thus building components in a more reactive way.
+> We can create alias for async pipe variables and use them
+
+```
+user$: Observable<firebase.User>;
+afAuth.authState.subscribe(user => this.user$ = user);                  // no need to use this
+this.user$ = afAuth.authState;
+```
+
+
+eg:
+```
+courses$: Observable<Course[]>;
+this.http.get('/api/courses', {params}).subscribe(courses => this.courses = courses);
+this.courses$ = this.http.get<Course[]>('/api/courses', {params});      // use this instead of above to use async pipe
+<li *ngFor="let course of (courses$ | async)">{{course}}</li>
+```
+> You can also use an alias to the async pipe variables
+```
+<div *ngIf="courses$ | async as coursesList">
+  <li *ngFor="let course of coursesList">{{course}}</li>
+</div>
 ```

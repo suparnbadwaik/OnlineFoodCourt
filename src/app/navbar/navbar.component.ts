@@ -9,10 +9,8 @@ import { AuthService } from '../auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(public authService: AuthService) {
-    // null if logged out
-    // afAuth.authState.subscribe(x=>console.log(x));
-    // afAuth.authState.subscribe(user => this.user$ = user);
-   }
+    
+  }
 
   ngOnInit() {
   }
